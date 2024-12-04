@@ -22,9 +22,6 @@ HANDEYECALIBRATIONDLL bool readCameraIntrinsics(const char* intrinsicsPath, bool
 // optimize = true 开启优化, optimize = false 关闭优化
 HANDEYECALIBRATIONDLL bool calibrateHandEye(int type, bool optimize);
 
-// 获取相机内参
-HANDEYECALIBRATIONDLL void getCameraIntrinsic(float* cameraIntrinsics);
-
 // 保存手眼标定矩阵至文件
 // 文件后缀支持 ini 或 dat
 HANDEYECALIBRATIONDLL bool saveHandEyeMatrix(const char* savePath);

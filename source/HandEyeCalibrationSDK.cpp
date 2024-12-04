@@ -48,19 +48,6 @@ bool calibrateHandEye(int type, bool optimize)
     return g_pHandEye->calibrate(HandEyeType(type), optimize);
 }
 
-void getCameraIntrinsic(float* cameraIntrinsics)
-{
-    std::array<std::array<double, 3>, 3> cameraIntrinsic = g_pHandEye->GetCameraIntrinsic();
-    cameraIntrinsics = new float[9];
-    for (int i = 0; i < 3; ++i)
-    {
-        for (int j = 0; j < 3; ++j)
-        {
-            cameraIntrinsics[j + i * 3] = cameraIntrinsic[i][j];
-        }
-    }
-}
-
 bool saveHandEyeMatrix(const char* savePath)
 {
     return g_pHandEye->SaveHandEyeMatrix(savePath);
