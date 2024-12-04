@@ -4,6 +4,7 @@
 
 const int dataNum = 15;
 
+// 图像文件
 std::string imgPath[dataNum] =
 {
 	"calib_001.bmp",
@@ -23,7 +24,7 @@ std::string imgPath[dataNum] =
 	"calib_015.bmp",
 };
 
-// x y z rx ry rz
+// 机械臂末端位姿x y z rx ry rz
 std::vector<std::vector<double>> RobotPoses =
 {
 	{-902.265,100.337,94.905,4.182,-12.311,-3.993},
