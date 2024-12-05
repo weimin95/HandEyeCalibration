@@ -1,8 +1,9 @@
 #include "HandEyeCalibrationSDK.h"
 #include <HandEyeCalibration.h>
 #include <array>
+#include <memory>
 
-static HandEyeCalibration* g_pHandEye = new HandEyeCalibration();
+static std::shared_ptr<HandEyeCalibration> g_pHandEye(new HandEyeCalibration());
 
 bool setCalibrateData(const CalibrateData* calibDatas, int dataNum, bool isDegree, int rotationType)
 {
