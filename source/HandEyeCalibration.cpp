@@ -789,7 +789,8 @@ bool HandEyeCalibration::calibrate(HandEyeType handEyeType, bool useOptimize)
                 {
                     cv::Mat cheesePos{ double(k * squareSize), double(j * squareSize), 0.0, 1.0 };
                     cv::Mat worldPos;
-                    worldPos = gripperPoseMat * Hcg_ * cameraPoseMat * cheesePos;
+                    cv::Mat cameraPos = cameraPoseMat * cheesePos;
+                    worldPos = gripperPoseMat * Hcg_ * cameraPos;
                     double x = worldPos.at<double>(0, 0);
                     double y = worldPos.at<double>(1, 0);
                     double z = worldPos.at<double>(2, 0);
@@ -969,6 +970,9 @@ void findChessboardCorners(vector<vector<cv::Point2f>>& corners_, vector<int>& v
         bool found = cv::findChessboardCornersSB(gray, pattern_size, corners, cv::CALIB_CB_ACCURACY);
         if (found)
         {
+            //cv::Mat src = gray.clone();
+            //cv::cvtColor(src, src, cv::COLOR_GRAY2BGR);
+            //cv::drawChessboardCorners(src, pattern_size, corners, found);
             corners_.push_back(corners);
             validImgIndex_.push_back(i);
         }
@@ -1094,6 +1098,7 @@ cv::Mat calibrateHandEye(vector<cv::Mat>& vecHg, vector<cv::Mat>& vecHc, const c
     {
         str = "xyz";
     }
+    //str = "zyx";
     for (size_t i = 0; i < num_images; i++)//¼ÆËã»úÐµ±ÛÎ»×Ë
     {
         cv::Mat ToolPosei = EEPose.row(i);

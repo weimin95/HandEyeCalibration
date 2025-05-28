@@ -5,6 +5,7 @@
 
 // 读取标定数据(图像和位姿)
 // dataNum 表示数据个数，至少为3
+// isGray = true 表示输入图像为灰度图, false表示rgb图
 // isDegree = true 表示机械臂末端旋转角度单位为度, false表示弧度
 // rotationType = 0 表示旋转方式为欧拉角, rotationType = 1 表示旋转方式为轴角
 HANDEYECALIBRATIONDLL bool setCalibrateData(const CalibrateData* calibDatas, int dataNum, bool isDegree, int rotationType);

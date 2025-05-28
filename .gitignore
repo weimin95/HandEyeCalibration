@@ -3,3 +3,7 @@
 ################################################################################
 
 /build
+/HandEyeCalibration/sample/SampleData
+/HandEyeCalibration/bin
+/HandEyeCalibration/lib
+/sample/SampleData/EyeInHand
